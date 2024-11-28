@@ -1,10 +1,11 @@
 <script setup>
-  const userName = 'kadoya'
-  console.log(userName)
+  const title = 'Vue.js Lesson'
+  let price = 9.99
 </script>
 
 <template>
-  <h1>Title</h1>
+  <h1>Title: {{ title }}</h1>
+  <h2>Price:$ {{ price - 1 }}</h2>
 </template>
 <style>
   h1 {
