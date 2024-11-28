@@ -30,8 +30,15 @@
     email: ref('dydy@example.com')
   })
   instructor.bio = 'hello'
-  console.log(instructor.sns)
-  console.log(instructor.email)
+  // console.log(instructor.sns)
+  // console.log(instructor.email)
+
+  const courseInfo = {
+    sections: ref(10),
+    language: ref('Japanese')
+  }
+
+  const sections = courseInfo.sections
 </script>
 
 <template>
@@ -43,6 +50,8 @@
   <h2>Instructor bio: {{ instructor.bio }}</h2>
   <h2>Instructor SNS: {{ instructor.sns.x }}</h2>
   <h2>Instructor email: {{ instructor.email }}</h2>
+  <h2>Courseinfo section: {{ courseInfo.sections + 1 }}</h2>
+  <h2>Courseinfo section: {{ sections + 1 }}</h2>
 </template>
 <style>
   h1 {
