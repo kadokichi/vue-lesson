@@ -42,6 +42,9 @@
 
   const count = ref(2)
 
+  const vueURL = ref('https://vuejs.org')
+  const vueId = ref('vue-link')
+
   //const message = ref('<h1>Hello</h1>')
 </script>
 
@@ -64,6 +67,10 @@
   <div v-html="message"></div>
   -->
 
+  <!-- aタグは同じコード -->
+  <a :id="vueId" :href="vueURL">Vue.js</a>
+  <a v-bind="{ id: vueId, href: vueURL}">Vue.js</a>
+  <button :disabled="''">button</button>
 </template>
 <style>
   h1 {
