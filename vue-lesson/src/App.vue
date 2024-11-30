@@ -41,6 +41,8 @@
   const sections = courseInfo.sections
 
   const count = ref(2)
+
+  //const message = ref('<h1>Hello</h1>')
 </script>
 
 <template>
@@ -54,9 +56,14 @@
   <h2>Instructor email: {{ instructor.email }}</h2>
   <h2>Courseinfo section: {{ courseInfo.sections + 1 }}</h2>
   <h2>Courseinfo section: {{ sections + 1 }}</h2>
+
   <div>Hello</div>
   <div>{{ count }}</div>
   <div v-text="count"></div>
+  <!-- v-htmlを使う際はユーザー情報を扱わないよう注意
+  <div v-html="message"></div>
+  -->
+
 </template>
 <style>
   h1 {
