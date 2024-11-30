@@ -39,6 +39,8 @@
   }
 
   const sections = courseInfo.sections
+
+  const count = ref(2)
 </script>
 
 <template>
@@ -52,6 +54,9 @@
   <h2>Instructor email: {{ instructor.email }}</h2>
   <h2>Courseinfo section: {{ courseInfo.sections + 1 }}</h2>
   <h2>Courseinfo section: {{ sections + 1 }}</h2>
+  <div>Hello</div>
+  <div>{{ count }}</div>
+  <div v-text="count"></div>
 </template>
 <style>
   h1 {
