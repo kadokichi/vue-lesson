@@ -86,6 +86,9 @@
   <div @click="count++">
     <button @click.stop="count = 30">button4</button>
   </div>
+
+  <p>{{ count }}</p>
+  <input type="text" @keyup.space.a="count++">
 </template>
 <style>
   h1 {
