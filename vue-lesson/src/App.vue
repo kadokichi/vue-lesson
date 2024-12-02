@@ -78,6 +78,14 @@
 
   <button @click="count++">button2</button>
   <button @click="countUp">button3</button>
+
+  <button @click="$event.preventDefault()">button4</button>
+  <a href="https://vuejs.org" @click.prevent>Vue.js</a>
+
+  <p>{{ count }}</p>
+  <div @click="count++">
+    <button @click.stop="count = 30">button4</button>
+  </div>
 </template>
 <style>
   h1 {
