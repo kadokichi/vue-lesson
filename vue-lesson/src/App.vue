@@ -1,26 +1,18 @@
 <script setup>
-  import { ref, computed } from 'vue'
-  const score = ref(0)
-  const count =ref(0)
-  function tmp() {
-    return score.value > 3 ? 'Good' : 'Bad'
-  }
-  const evaluation = computed(() => {
-    console.log('evaluation')
-    return score.value > 3 ? 'Good' : 'Bad'
+  import { ref, watchEffect } from 'vue'
+  const  count = ref(0)
+  watchEffect(() => {
+    console.log('watchEffect')
+    console.log(count.value)
+    setTimeout(() => {
+    console.log('after 1 second')
+  }, 1000)
+  count.value = 'hello'
   })
-  function getEvalation() {
-    console.log(evaluation.value)
-  }
 </script>
 
 <template>
-  <p>{{ score> 3 ? 'Good' : 'Bad' }}</p>
-  <p>{{ tmp() }}</p>
-  <p>score: {{ score }}</p>
-  <p>count: {{ count }}</p>
-  <button @click="score++">+1 score</button>
-  <button @click="count++">+1 count</button>
-  <button @click="getEvalation">getEvalation</button>
+  <p>{{ count }}</p>
+  <button @click="count++">+1</button>
 </template>
 
