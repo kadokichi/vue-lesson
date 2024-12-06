@@ -5,11 +5,7 @@
 
 <template>
   <button @click="ok = !ok">toggle</button>
-  <template v-if="ok">
-    <p>OK</p>
-    <p>Hello</p>
-    <p>Hi</p>
-  </template>
+  <p v-show="ok">OK</p>
 </template>
 
 <style>
