@@ -1,11 +1,10 @@
 <script setup>
   import { ref } from 'vue'
-  const ok = ref(true)
+  const fruits = ref(['Apple', 'Banana', 'Grape'])
 </script>
 
 <template>
-  <button @click="ok = !ok">toggle</button>
-  <p v-show="ok">OK</p>
+  <li v-for="fruit in fruits">{{ fruit }}</li>
 </template>
 
 <style>
