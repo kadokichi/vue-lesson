@@ -1,10 +1,16 @@
 <script setup>
   import { ref } from 'vue'
-  const fruits = ref(['Apple', 'Banana', 'Grape'])
+  const fruits = ref([
+    {id: 1, name: 'Apple'},
+    {id: 2, name: 'Apple'},
+    {id: 3, name: 'Banana'},
+    {id: 1, name: 'Grape'}
+    ])
 </script>
 
 <template>
-  <li v-for="fruit in fruits">{{ fruit }}</li>
+  <button @click="fruits.shift()">button</button>
+  <li v-for="fruit in fruits" :key="fruit.id"><input type="text">{{ fruit.name }}</li>
 </template>
 
 <style>
