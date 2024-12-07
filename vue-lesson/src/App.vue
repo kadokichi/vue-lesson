@@ -1,12 +1,12 @@
 <script setup>
-  import { ref } from 'vue'
-
+  import CountUp from './CountUp.vue';
 </script>
 
 <template>
-  <p v-for="n in 10" :key="n">{{ n }}</p>
+  <h1>App</h1>
+  <CountUp />
+  <CountUp></CountUp>
+  <CountUp />
 </template>
 
-<style>
-
-</style>
+<style></style>
