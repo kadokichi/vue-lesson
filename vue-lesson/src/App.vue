@@ -10,16 +10,6 @@
   <BaseButton id="base-button" class="border"/>
 </template>
 
-<style>
-  body {
-    background-color: beige;
-  }
-
-  .red {
-    color: red;
-  }
-</style>
-
 <style scoped>
   .red {
     color: red;
