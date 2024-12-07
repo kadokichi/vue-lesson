@@ -4,10 +4,24 @@
 </script>
 
 <template>
-  <h1>App</h1>
+  <h1 class="red">App</h1>
   <BaseIcon />
   <CountUp id="base-button" class="border"/>
   <BaseButton id="base-button" class="border"/>
 </template>
 
-<style></style>
+<style>
+  body {
+    background-color: beige;
+  }
+
+  .red {
+    color: red;
+  }
+</style>
+
+<style scoped>
+  .red {
+    color: red;
+  }
+</style>
