@@ -7,7 +7,7 @@
 </script>
 
 <template>
-  <ShowCount :foo="count" />
+  <ShowCount :total-score="count" />
   <button @click="count++">+1</button>
 </template>
 
