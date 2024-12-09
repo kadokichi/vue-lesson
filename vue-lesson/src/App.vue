@@ -1,17 +1,16 @@
 <script setup>
-  import CountUp from './components/CountUp.vue';
-  import BaseButton from './components/BaseButton.vue';
+  import { ref } from 'vue'
+  //import CountUp from './components/CountUp.vue';
+  //import BaseButton from './components/BaseButton.vue';
+  import ShowCount from './components/ShowCount.vue';
+  const count = ref(0)
 </script>
 
 <template>
-  <h1 class="red">App</h1>
-  <BaseIcon />
-  <CountUp id="base-button" class="border"/>
-  <BaseButton id="base-button" class="border"/>
+  <ShowCount :foo="count" />
+  <button @click="count++">+1</button>
 </template>
 
-<style scoped>
-  .red {
-    color: red;
-  }
+<style>
+
 </style>
