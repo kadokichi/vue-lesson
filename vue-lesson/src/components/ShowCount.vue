@@ -2,7 +2,10 @@
   defineProps({
     foo: {
       type: Number,
-      default: 100
+      required: true,
+      validator(value) {
+        return value === 0 || value === 1
+      }
     }
   })
 </script>
