@@ -1,7 +1,11 @@
 <script setup>
-  defineProps(['foo'])
+  defineProps({
+    foo: {
+      type: Number,
+      default: 100
+    }
+  })
 </script>
 <template>
   <p>count: {{ foo }}</p>
-  <p>{{ bar }}</p>
 </template>
