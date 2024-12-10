@@ -10,7 +10,7 @@
 <template>
   <p>count {{ count }}</p>
   <button @click="count++">+1</button>
-  <ResetButton @reset="count = $event"/>
+  <ResetButton @reset-count="count = $event"/>
 </template>
 
 <style>
