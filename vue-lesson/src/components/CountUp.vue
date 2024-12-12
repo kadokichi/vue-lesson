@@ -1,5 +1,15 @@
 <script setup>
-  import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue'
+  import {
+    ref,
+    onBeforeMount,
+    onMounted,
+    onBeforeUpdate,
+    onUpdated,
+    onBeforeUnmount,
+    onUnmounted,
+    nextTick
+  } from 'vue'
+
   const count = ref(0)
   onBeforeMount(() => {
     console.log('onBeforeMount')
@@ -19,9 +29,16 @@
   onUnmounted(() => {
     console.log('onUnmounted')
   })
+
+  function countUp() {
+    count.value++
+    nextTick(() => {
+      console.log('nextTick')
+    })
+  }
 </script>
 
 <template>
   <p>count: {{ count }}</p>
-  <button @click="count++">+1</button>
+  <button @click="countUp">+1</button>
 </template>
