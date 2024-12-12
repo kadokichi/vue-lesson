@@ -1,14 +1,15 @@
 <script setup>
-  import { ref } from 'vue';
-  import CountUp from './components/CountUp.vue';
-  const isShow = ref(true)
+import { onMounted, useTemplateRef } from 'vue';
+
+const userInput = useTemplateRef('user-input')
+console.log(userInput.value)
+onMounted(() => {
+  userInput.value.focus()
+})
 </script>
 
 <template>
-  <div>
-    <button @click="isShow = !isShow">switch</button>
-    <CountUp v-if="isShow"/>
-  </div>
+  <input ref="user-input" type="text">
 </template>
 
 <style scoped>
