@@ -1,10 +1,11 @@
 <script setup>
-  import { ref } from 'vue'
-  const x = ref('x')
+
 </script>
 <template>
   <div>
-    <slot/>
+    <slot>
+      <p>No Content</p>
+    </slot>
   </div>
 </template>
 
