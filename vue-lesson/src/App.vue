@@ -1,15 +1,24 @@
 <script setup>
-import { onMounted, useTemplateRef } from 'vue';
-
-const userInput = useTemplateRef('user-input')
-console.log(userInput.value)
-onMounted(() => {
-  userInput.value.focus()
-})
+  import { ref } from 'vue'
+  import BaseCard from './components/BaseCard.vue';
+  const y = ref('y')
 </script>
 
 <template>
-  <input ref="user-input" type="text">
+  <h1>Slots</h1>
+  <BaseCard>
+    <h2>Hello</h2>
+    <p>How Are You</p>
+    <p>{{ x }}</p>
+    <p>{{ y }}</p>
+  </BaseCard>
+  <BaseCard>
+    <ul>
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Grape</li>
+    </ul>
+  </BaseCard>
 </template>
 
 <style scoped>

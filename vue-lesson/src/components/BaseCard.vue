@@ -1,0 +1,17 @@
+<script setup>
+  import { ref } from 'vue'
+  const x = ref('x')
+</script>
+<template>
+  <div>
+    <slot/>
+  </div>
+</template>
+
+<style scoped>
+  div {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 16px;
+  }
+</style>
