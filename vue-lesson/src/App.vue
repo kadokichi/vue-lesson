@@ -11,7 +11,9 @@
   <button @click="currentComp = CompA">A</button>
   <button @click="currentComp = CompB">B</button>
   <button @click="currentComp = CompC">C</button>
-  <component :is="currentComp" />
+  <KeepAlive>
+    <component :is="currentComp" />
+  </KeepAlive>
 </template>
 
 <style scoped>
