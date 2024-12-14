@@ -1,9 +1,10 @@
 <script setup>
-  import { shallowRef } from 'vue';
+  import { ref, shallowRef } from 'vue';
   import CompA from './components/CompA.vue';
   import CompB from './components/CompB.vue';
   import CompC from './components/CompC.vue';
   const currentComp = shallowRef(CompA)
+  const isShow = ref(false)
 </script>
 
 <template>
@@ -14,6 +15,15 @@
   <KeepAlive>
     <component :is="currentComp" />
   </KeepAlive>
+  <button @click="isShow = true">Open Modal</button>
+  <Teleport to="body">
+    <dialog v-if="isShow" open>
+      <p>This is a Modal!</p>
+      <button @click="isShow = false">Close</button>
+    </dialog>
+  </Teleport>
+  <Teleport to="body" defer><p>A</p></Teleport>
+  <Teleport to="body"><p>B</p></Teleport>
 </template>
 
 <style scoped>
