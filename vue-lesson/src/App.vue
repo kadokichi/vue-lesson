@@ -4,6 +4,7 @@ const userInput = ref('')
 const message = ref('')
 const checked = ref('not checked')
 const fruits = ref([])
+const gender = ref('male')
 </script>
 
 <template>
@@ -26,6 +27,13 @@ const fruits = ref([])
   <input id="Grape" v-model="fruits" type="checkbox" value="Grape">
   <label for="Grape">Grape</label>
   <p>{{ fruits }}</p>
+
+  <h2>Radio</h2>
+  <input id="male" v-model="gender" type="radio" value="male">
+  <label for="male">male</label>
+  <input id="female" v-model="gender" type="radio" value="female">
+  <label for="female">female</label>
+  <p>{{ gender }}</p>
 </template>
 
 <style scoped>
