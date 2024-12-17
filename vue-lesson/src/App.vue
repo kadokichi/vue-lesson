@@ -11,10 +11,10 @@ const selected = ref([])
 <template>
   <h1>V-model</h1>
   <h2>Text</h2>
-  <input v-model="userInput" type="text">
+  <input v-model.lazy="userInput" type="text">
   <p>{{ userInput }}</p>
   <h2>Textarea</h2>
-  <textarea v-model="message"></textarea>
+  <textarea v-model.trim.number="message"></textarea>
   <p style="white-space: pre;">{{ message }}</p>
 
   <h2>Checkbox</h2>
