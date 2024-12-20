@@ -1,6 +1,7 @@
 <script setup>
   import { ref } from 'vue';
   const isShow = ref(true)
+  let intervalId
   function beforeEnter(el) {
     console.log('beforeEnter', el)
     el.style.transform = 'translateX(30px)'
@@ -8,7 +9,7 @@
   function enter(el) {
     console.log('enter', el)
     let translateXValue = 30
-    const intervalId = setInterval(() => {
+    intervalId = setInterval(() => {
       translateXValue -= 1
       el.style.transform = `translateX(${translateXValue}px)`
       if (translateXValue === 0) {
@@ -18,6 +19,10 @@
   }
   function afterEnter(el) {
     console.log('afterEnter', el)
+  }
+  function enterCancelled(el) {
+    console.log('enterCancelled', el)
+    clearInterval(intervalId)
   }
   function beforeLeave(el) {
     console.log('beforeLeave',el)
@@ -47,6 +52,7 @@
     @before-enter="beforeEnter"
     @enter="enter"
     @after-enter="afterEnter"
+    @enter-cancelled="enterCancelled"
     @before-leave="beforeLeave"
     @leave="leave"
     @after-leave="afterLeave"
