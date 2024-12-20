@@ -1,64 +1,18 @@
 <script setup>
   import { ref } from 'vue';
-  const isShow = ref(true)
-  let intervalId
-  function beforeEnter(el) {
-    console.log('beforeEnter', el)
-    el.style.transform = 'translateX(30px)'
-  }
-  function enter(el) {
-    console.log('enter', el)
-    let translateXValue = 30
-    intervalId = setInterval(() => {
-      translateXValue -= 1
-      el.style.transform = `translateX(${translateXValue}px)`
-      if (translateXValue === 0) {
-      clearInterval(intervalId)
-      }
-    }, 20)
-  }
-  function afterEnter(el) {
-    console.log('afterEnter', el)
-  }
-  function enterCancelled(el) {
-    console.log('enterCancelled', el)
-    clearInterval(intervalId)
-  }
-  function beforeLeave(el) {
-    console.log('beforeLeave',el)
-  }
-  function leave(el) {
-    console.log('leave', el)
-    console.log('enter', el)
-    let translateXValue = 0
-    const intervalId = setInterval(() => {
-      translateXValue += 1
-      el.style.transform = `translateX(${translateXValue}px)`
-      if (translateXValue === 30) {
-      clearInterval(intervalId)
-      }
-    }, 20)
-  }
-  function afterLeave(el) {
-    console.log('afterLeave',el)
-  }
+  const fruits = ref(['Apple', 'Banana', 'Grape'])
+  const newFruit = ref('')
 </script>
 
 <template>
   <h1>Animation</h1>
-  <button @click="isShow = !isShow">switch</button>
-  <Transition
-    name="fade"
-    @before-enter="beforeEnter"
-    @enter="enter"
-    @after-enter="afterEnter"
-    @enter-cancelled="enterCancelled"
-    @before-leave="beforeLeave"
-    @leave="leave"
-    @after-leave="afterLeave"
-  >
-    <div v-if="isShow">Hello</div>
-  </Transition>
+  <input v-model="newFruit" type="text">
+  <button @click="fruits.unshift(newFruit)">Add</button>
+  <TransitionGroup name="fade" tag="main">
+    <div v-for="(fruit, index) in fruits" :key="fruit" @click="fruits.splice(index, 1)">
+      {{ fruit }}
+    </div>
+  </TransitionGroup>
 </template>
 
 <style scoped>
