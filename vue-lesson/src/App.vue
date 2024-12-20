@@ -1,12 +1,20 @@
 <script setup>
   import { ref } from 'vue';
-  //import TmpComp from './components/TmpComp.vue';
   const isShow = ref(true)
   function beforeEnter(el) {
     console.log('beforeEnter', el)
+    el.style.transform = 'translateX(30px)'
   }
   function enter(el) {
     console.log('enter', el)
+    let translateXValue = 30
+    const intervalId = setInterval(() => {
+      translateXValue -= 1
+      el.style.transform = `translateX(${translateXValue}px)`
+      if (translateXValue === 0) {
+      clearInterval(intervalId)
+      }
+    }, 20)
   }
   function afterEnter(el) {
     console.log('afterEnter', el)
@@ -16,6 +24,15 @@
   }
   function leave(el) {
     console.log('leave', el)
+    console.log('enter', el)
+    let translateXValue = 0
+    const intervalId = setInterval(() => {
+      translateXValue += 1
+      el.style.transform = `translateX(${translateXValue}px)`
+      if (translateXValue === 30) {
+      clearInterval(intervalId)
+      }
+    }, 20)
   }
   function afterLeave(el) {
     console.log('afterLeave',el)
