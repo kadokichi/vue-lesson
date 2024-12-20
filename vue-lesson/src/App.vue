@@ -1,26 +1,23 @@
 <script setup>
   import { ref } from 'vue';
+  //import TmpComp from './components/TmpComp.vue';
   const isShow = ref(true)
 </script>
 
 <template>
   <h1>Animation</h1>
   <button @click="isShow = !isShow">switch</button>
-  <Transition
-    name="custom-classes"
-    enter-active-class="animate__animated animate__bounce"
-    leave-active-class="animate__animated animate__shakeX"
-  >
-    <div v-if="isShow">Hello Fade</div>
+  <Transition name="fade" mode="out-in">
+    <div v-if="isShow">ON</div>
+    <div v-else>OFF</div>
   </Transition>
-  <h1 class="animate__animated animate__bounce">An animated element</h1>
 </template>
 
 <style scoped>
   .fade-enter-from {
     opacity: 0;
   }
-  .hello {
+  .fade-enter-active {
     transition: opacity 1s;
   }
   .fade-enter-to {
