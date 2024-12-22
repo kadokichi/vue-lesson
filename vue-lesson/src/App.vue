@@ -1,41 +1,12 @@
 <script setup>
-  import { ref } from 'vue';
-  const fruits = ref(['Apple', 'Banana', 'Grape'])
-  const newFruit = ref('')
+  //import { ref } from 'vue';
 </script>
 
 <template>
-  <h1>Animation</h1>
-  <input v-model="newFruit" type="text">
-  <button @click="fruits.unshift(newFruit)">Add</button>
-  <TransitionGroup name="fade" tag="main">
-    <div v-for="(fruit, index) in fruits" :key="fruit" @click="fruits.splice(index, 1)">
-      {{ fruit }}
-    </div>
-  </TransitionGroup>
+  <h1>Vue Router</h1>
+  <RouterView />
 </template>
 
 <style scoped>
-  .fade-enter-from {
-    opacity: 0;
-  }
-  .fade-enter-active {
-    transition: opacity 1s;
-  }
-  .fade-enter-to {
-    opacity: 1;
-  }
-  .fade-move {
-    transition: transform 1s;
-  }
-  .fade-leave-from {
-    opacity: 1;
-  }
-  .fade-leave-active {
-    transition: opacity 1s;
-    position: absolute;
-  }
-  .fade-leave-to {
-    opacity: 0;
-  }
+
 </style>
