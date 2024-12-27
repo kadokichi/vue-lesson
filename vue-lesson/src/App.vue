@@ -7,9 +7,18 @@
   <RouterLink :to="{ name: 'home' }">Home</RouterLink> |
   <RouterLink :to="{ name: 'posts', params: {id: 'kdy'} }">Posts</RouterLink>
   <!-- <RouterLink :to="{ name: 'about' }">About</RouterLink> -->
-  <RouterView />
+   <div class="container">
+    <main>
+      <RouterView />
+    </main>
+    <RouterView name="Sidebar" />
+   </div>
+  <RouterView name="Footer" />
 </template>
 
 <style scoped>
-
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+  }
 </style>

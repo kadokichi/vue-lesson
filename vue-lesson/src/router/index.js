@@ -3,6 +3,9 @@ import HomeView from '@/views/HomeView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import PostsView from '@/views/PostsView.vue'
 import LikesView from '@/views/LikesView.vue'
+import NewsView from '@/views/NewsView.vue'
+import PeopleView from '@/views/PeopleView.vue'
+import HomeFooter from '@/views/HomeFooter.vue'
 // import AboutView from '@/views/AboutView.vue'
 // import BlogView from '@/views/BlogView.vue'
 // import NotFound from '@/views/NotFound.vue'
@@ -11,11 +14,19 @@ const router = createRouter({
   routes: [{
     path: '/',
     name: 'home',
-    component: HomeView
+    components: {
+      default: HomeView,
+      Sidebar: NewsView,
+      Footer: HomeFooter
+    }
   },
   {
     path: '/:id',
-    component: ProfileView,
+    components: {
+      default: ProfileView,
+      Sidebar: PeopleView,
+      Footer: HomeFooter
+    },
     children: [{
       path: '',
       name: 'posts',
