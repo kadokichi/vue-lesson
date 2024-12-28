@@ -15,20 +15,12 @@ const router = createRouter({
       name: 'blog',
       component: BlogView
     }
-  ],
-  scrollBehavior(to, from, savedPosition) {
-    console.log(to, from, savedPosition)
-    if (savedPosition) {
-      return savedPosition
-    }
-    if (to.hash) {
-      return {
-        el: to.hash,
-        top: 20,
-        behavior: 'smooth'
-      }
-    }
-    return { top: 0, left: 0, behavior: 'smooth' }
-  }
+  ]
+})
+router.beforeEach(async (to, from) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+  console.log(to, from)
+  console.log('beforeEach')
+  if (to.name === 'blog') return {name: 'home'}
 })
 export default router
