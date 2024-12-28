@@ -1,5 +1,8 @@
 <script setup>
-
+import { onBeforeRouteUpdate } from 'vue-router';
+onBeforeRouteUpdate(() => {
+  console.log('onBeforeRouteUpdate')
+})
 </script>
 
 <template>
