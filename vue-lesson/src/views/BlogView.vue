@@ -5,7 +5,7 @@ onBeforeRouteUpdate(() => {
 })
 onBeforeRouteLeave(() => {
   console.log('onBeforeRouteLeave')
-  return window.confirm('本当にこのページを離れますか？')
+  //return window.confirm('本当にこのページを離れますか？')
 })
 </script>
 

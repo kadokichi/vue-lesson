@@ -8,11 +8,13 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      meta: { transition: 'fade' },
       component: HomeView
     },
     {
       path: '/blog/:id',
       name: 'blog',
+      meta: { requireAuth: true, transition: 'slide' },
       component: BlogView,
       beforeEnter() {
         console.log('beforeEnter')
@@ -21,6 +23,9 @@ const router = createRouter({
   ]
 })
 router.beforeEach(() => {
+  // if (to.meta.requireAuth && !isLoggin) {
+  //   return '/'
+  // }
   console.log('beforeEach')
 })
 router.beforeResolve(() => {
