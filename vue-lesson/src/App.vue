@@ -1,5 +1,5 @@
 <script setup>
-  import { useCounterStore } from './store/counter';
+  import { useCounterStore } from './stores/counter';
   import CounterComp from './components/CounterComp.vue';
   const counterStore = useCounterStore()
   console.log(counterStore.count)
@@ -8,7 +8,9 @@
 <template>
   <h1>Pinia</h1>
   <button @click="counterStore.count++">+1</button>
+  <button @click="counterStore.increment">increment</button>
   <p>{{ counterStore.count }}</p>
+  <p>doubleCount: {{ counterStore.doubleCount }}</p>
   <CounterComp />
 </template>
 
